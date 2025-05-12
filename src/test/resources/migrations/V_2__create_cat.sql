@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS cat (
+    id INT PRIMARY KEY,
+    name VARCHAR(255)
+);

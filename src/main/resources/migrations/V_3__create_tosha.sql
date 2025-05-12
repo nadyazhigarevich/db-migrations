@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS tosha (
+    id INT PRIMARY KEY,
+    name VARCHAR(255)
+);
