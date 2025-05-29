@@ -28,23 +28,6 @@ public class DefaultMigrationManager implements MigrationManager {
         this.migrationHistoryService = migrationHistoryService;
     }
 
-//    @Override
-//    public void migrate(final List<MigrationFile> migrationFiles, final Connection connection) {
-//        var isLocked = this.migrationHistoryService.isLocked(connection);
-//        while (isLocked) {
-//            try {
-//                TimeUnit.MILLISECONDS.sleep(DELAY_TO_RETRIEVE_LOCKED_STATUS);
-//
-//                LOGGER.info("Migration is locked...");
-//
-//                isLocked = this.migrationHistoryService.isLocked(connection);
-//            } catch (InterruptedException e) {
-//                LOGGER.error("Something went wrong");
-//            }
-//        }
-//        this.processMigration(migrationFiles, connection);
-//    }
-
     @Override
     public void migrate(List<MigrationFile> migrationFiles, Connection connection) {
         try {

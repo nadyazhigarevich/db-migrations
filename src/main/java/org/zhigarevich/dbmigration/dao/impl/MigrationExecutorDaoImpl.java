@@ -13,11 +13,12 @@ public class MigrationExecutorDaoImpl implements MigrationExecutorDao {
 
     private static final Logger LOGGER = (Logger) LogManager.getLogger();
 
+    @SuppressWarnings("all")
     @Override
     public void apply(final List<String> queries, final Connection connection) throws SQLException {
         try (var statement = connection.createStatement()) {
             LOGGER.debug("Attempting to apply actual migrations");
-
+            connection.setTransactionIsolation(Connection.TRANSACTION_REPEATABLE_READ);
             connection.setAutoCommit(false);
             for (var query : queries) {
                 statement.addBatch(query);
